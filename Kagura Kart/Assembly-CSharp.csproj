@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\WheelDrive.cs" />
     <Compile Include="Assets\Scripts\SpeedUp.cs" />
     <Compile Include="Assets\Scripts\EasySuspension.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PowerUps.cs" />
   </ItemGroup>
   <ItemGroup>
