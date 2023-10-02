@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638318443812195430
-    m_Hash: 2622038034
+      ticks: 638318574793874108
+    m_Hash: 2224813362
   m_LockFileStatus:
     m_FilePath: C:/Users/Galaxy/Documents/GitHub/Kagura-Kart/Kagura Kart/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638318444152404998
-    m_Hash: 691460816
+      ticks: 638318574793904133
+    m_Hash: 1316333025
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
