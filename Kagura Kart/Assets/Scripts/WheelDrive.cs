@@ -7,6 +7,10 @@ using UnityEngine.InputSystem;
 public enum DriveType { RearWheelDrive, FrontWheelDrive, AllWheelDrive }
 public class WheelDrive : MonoBehaviour
 {
+    public bool Lap = false;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] LayerMask ground;
+
     [SerializeField] float maxAngle = 30f;
     [SerializeField] float maxTorque = 300f;
     [SerializeField] float brakeTorque = 30000f;
@@ -71,7 +75,7 @@ public class WheelDrive : MonoBehaviour
         steeringInputAction.Disable();
         accelerationInputAction.Disable();
     }
-    
+
     void Start()
     {
         m_Wheels = GetComponentsInChildren<WheelCollider>();
@@ -127,6 +131,15 @@ public class WheelDrive : MonoBehaviour
                     shapeTransform.rotation = q;
                 }
             }
+
+            if (IsGrounded())
+            {
+                Debug.Log("is UpsideDown");
+            }
         }
+    }
+    bool IsGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, .1f, ground);
     }
 }

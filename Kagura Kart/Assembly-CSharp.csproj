@@ -60,9 +60,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\WheelDrive.cs" />
     <Compile Include="Assets\Scripts\SpeedUp.cs" />
+    <Compile Include="Assets\Scripts\IsUpsideDown.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\EasySuspension.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PowerUps.cs" />
+    <Compile Include="Assets\Scripts\StartLine.cs" />
+    <Compile Include="Assets\Scripts\LapCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -71,6 +76,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\BEDRILL\Modular_Track_Free\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
