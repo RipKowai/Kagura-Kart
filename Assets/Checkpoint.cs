@@ -14,11 +14,13 @@ public class Checkpoint : MonoBehaviour
         WheelDrive wheelDrive = collision.GetComponent<WheelDrive>();
         if (collision.gameObject.name == "Player 1")
         {
-            wheelDrive.Lap = true; 
+            wheelDrive.Lap = true;
+            wheelDrive.ResetSpawnPosition();
         }
         if (collision.gameObject.name == "Player 2")
         {
             wheelDrive.Lap = true;
+            wheelDrive.ResetSpawnPosition();
         }
         //|| collision.gameObject.name == "Player2"
         if (collision.gameObject.name == "Player 1")
@@ -30,10 +32,5 @@ public class Checkpoint : MonoBehaviour
         {
             FindFirstObjectByType<StartLine>().PlayerScored();
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

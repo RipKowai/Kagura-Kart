@@ -12,9 +12,13 @@ public class WheelDrive : MonoBehaviour
     [SerializeField] LayerMask ground;
 
     [SerializeField] float maxAngle = 30f;
-    [SerializeField] float maxTorque = 300f;
+    public float maxTorque = 300f;
     [SerializeField] float brakeTorque = 30000f;
     [SerializeField] GameObject wheelShape;
+
+    public Vector3 spawnPosition;
+    private Quaternion spawnRotation;
+    Rigidbody rb;
 
     [SerializeField] float criticalSpeed = 10f;
     [SerializeField] int stepBelow = 5;
@@ -22,7 +26,7 @@ public class WheelDrive : MonoBehaviour
 
     [SerializeField] DriveType driveType;
     WheelCollider[] m_Wheels;
-    float handBrake, torque;
+    public float handBrake, torque;
     public float angle;
 
     public InputActionAsset inputActions;
@@ -33,6 +37,8 @@ public class WheelDrive : MonoBehaviour
 
     void Awake()
     {
+        ResetSpawnPosition();
+
         gameplayActionMap = inputActions.FindActionMap("Gameplay");
 
         handBrakeInputAction = gameplayActionMap.FindAction("HandBrake");
@@ -75,9 +81,9 @@ public class WheelDrive : MonoBehaviour
         steeringInputAction.Disable();
         accelerationInputAction.Disable();
     }
-
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         m_Wheels = GetComponentsInChildren<WheelCollider>();
         for (int i = 0; i < m_Wheels.Length; i++)
         {
@@ -112,6 +118,7 @@ public class WheelDrive : MonoBehaviour
             {
                 wheel.motorTorque = torque;
             }
+
             if (wheelShape)
             {
                 Quaternion q;
@@ -135,9 +142,25 @@ public class WheelDrive : MonoBehaviour
             if (IsGrounded())
             {
                 Debug.Log("is UpsideDown");
+                Invoke("RespawnCar", 1f);
             }
         }
     }
+    public void ResetSpawnPosition()
+    {
+        spawnPosition = transform.position;
+        spawnRotation = transform.rotation;
+    }
+    private void RespawnCar()
+    {
+        Debug.Log("Respawn");
+        rb.velocity = new Vector3(0f, 0f, 0f);
+        rb.angularVelocity = new Vector3(0f, 0f, 0f);
+        torque = 0;
+        transform.position = spawnPosition;
+        transform.rotation = spawnRotation;
+    }
+
     bool IsGrounded()
     {
         return Physics.CheckSphere(groundCheck.position, .1f, ground);

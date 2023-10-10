@@ -16,6 +16,10 @@ public class StartLine : MonoBehaviour
     [SerializeField] private GameObject P1WinningScreen;
     [SerializeField] private GameObject P2WinningScreen;
 
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject GameMenu;
+
+    [SerializeField] private int LapsToWin = 3;
     int Player1Score = 0;
     int Player2Score = 0;
 
@@ -33,7 +37,6 @@ public class StartLine : MonoBehaviour
             WheelDrive wheelDrive = collision.GetComponent<WheelDrive>();
             while (wheelDrive.Lap == true)
             {
-                Debug.Log("whatever");
                 if (collision.gameObject.name == "Player 1") 
                 {
                     Player1Score++;
@@ -56,13 +59,17 @@ public class StartLine : MonoBehaviour
 
     public void Update()
     {
-        if (Player1Score == 3)
+        if (Player1Score == LapsToWin)
         {
             P1WinningScreen.SetActive(true);
+            PauseMenu.SetActive(true);
+            GameMenu.SetActive(false);
         }
-        if (Player2Score == 3)
+        if (Player2Score == LapsToWin)
         {
             P2WinningScreen.SetActive(true);
+            PauseMenu.SetActive(true);
+            GameMenu.SetActive(false);
         }
     }
 
