@@ -25,7 +25,7 @@ public class WheelDrive : MonoBehaviour
     [SerializeField] int stepAbove = 1;
 
     [SerializeField] DriveType driveType;
-    WheelCollider[] m_Wheels;
+    WheelCollider[] carWheels;
     public float handBrake, torque;
     public float angle;
 
@@ -84,10 +84,10 @@ public class WheelDrive : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        m_Wheels = GetComponentsInChildren<WheelCollider>();
-        for (int i = 0; i < m_Wheels.Length; i++)
+        carWheels = GetComponentsInChildren<WheelCollider>();
+        for (int i = 0; i < carWheels.Length; i++)
         {
-            var wheel = m_Wheels[i];
+            var wheel = carWheels[i];
             if(wheelShape != null)
             {
                 var ws = Instantiate(wheelShape);
@@ -98,27 +98,31 @@ public class WheelDrive : MonoBehaviour
     }
     void Update()
     {
-        m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepBelow, stepAbove);
+        carWheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepBelow, stepAbove);
 
-        foreach (WheelCollider wheel in m_Wheels)
+        foreach (WheelCollider wheel in carWheels)
         {
             if (wheel.transform.localPosition.z > 0)
             {
                 wheel.steerAngle = angle;
             }
+
             if(wheel.transform.localPosition.z < 0)
             {
                 wheel.brakeTorque = handBrake;
             }
+
             if(wheel.transform.localPosition.z < 0 && driveType != DriveType.FrontWheelDrive)
             {
                 wheel.motorTorque = torque;
             }
+
             if(wheel.transform.localPosition.z > 0 && driveType != DriveType.RearWheelDrive)
             {
                 wheel.motorTorque = torque;
             }
 
+            //This code block is responsible for updating the graphics of the car wheels to match their physical positions and rotations in the game. 
             if (wheelShape)
             {
                 Quaternion q;
@@ -157,6 +161,7 @@ public class WheelDrive : MonoBehaviour
         rb.velocity = new Vector3(0f, 0f, 0f);
         rb.angularVelocity = new Vector3(0f, 0f, 0f);
         torque = 0;
+
         transform.position = spawnPosition;
         transform.rotation = spawnRotation;
     }
