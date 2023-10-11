@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
+
     public void Level3()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
@@ -28,17 +29,14 @@ public class MainMenu : MonoBehaviour
         if (level1 == true)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            level1 = false;
         }
         if (level2 == true)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-            level2 = false;
         }
         if (level3 == true)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
-            level3 = false;
         }
     }
 
