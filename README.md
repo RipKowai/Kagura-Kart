@@ -1,7 +1,7 @@
 # Kagura-Kart
 Car game
-Add a short description of the intended behavior, how the game mechanic should work. I need to know what were you trying to achieve.
-# The main goal with the game is to make a multiplayer car game in a 3D world to be able to drive around in a track where the player needs to cross 
+# Add a short description of the intended behavior, how the game mechanic should work. I need to know what were you trying to achieve.
+The main goal with the game is to make a multiplayer car game in a 3D world to be able to drive around in a track where the player needs to cross 
 a checkpoint that will allowe your player to complete a lap. The player needs to complete 3 laps before the opponent so that they can achieve Victory. 
 The game has 3 levels witch you are able to chose from when you click the button play. 
 
@@ -9,12 +9,12 @@ My first inicial toughts were that i make a normal controller for the car where 
 but since i decided to make the game in 3D i had to change the controller to a wheel controller. 
 
 	
-Add a short set of instructions for me, as a developer, about what do I need do to in order to take a look at your project - what scene I need to load in order to play? Do I need any additional packages to install?
-# For starters you need to open the folder called scenes and open the Main Menu scene in order to start the game as intended. I have used ProBuilder to make my first 2 levels but i dont know if you need to have it installed. I have used the New Input system for controling my cars so you would need to download package. 
+# Add a short set of instructions for me, as a developer, about what do I need do to in order to take a look at your project - what scene I need to load in order to play? Do I need any additional packages to install?
+For starters you need to open the folder called scenes and open the Main Menu scene in order to start the game as intended. I have used ProBuilder to make my first 2 levels but i dont know if you need to have it installed. I have used the New Input system for controling my cars so you would need to download package. 
 
-Describe quickly the structure of your code and the thinking behind design.
-# Basically what the wheel controller does is it controlls the angle at whitch the wheels rotate based off the local collider position and rotation. T
-o be more precise with "A, D, Left, Right" you control the wheels rotation in the Y Axis and with "W, S, Up, Down" you control the X Axis.
+# Describe quickly the structure of your code and the thinking behind design.
+Basically what the wheel controller does is it controlls the angle at whitch the wheels rotate based off the local collider position and rotation. 
+To be more precise with "A, D, Left, Right" you control the wheels rotation in the Y Axis and with "W, S, Up, Down" you control the X Axis.
 Unfortunately i couldnt smooth out the turn rotation of the wheels when you go left and right they simply instantly rotate to a specific angle that i have assigned. 
 The car then starts to move based off the angle that the wheels are facing and also depending on its current torque, because the wheels can rotate backwards aswell.  
 My brake works by applying brakeTorque to the wheels witch gradualy slows the car down when you holw either "Space" or "Left CTRL". 
